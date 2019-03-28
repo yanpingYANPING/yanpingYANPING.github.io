@@ -1,0 +1,387 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DOM - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="DOM: Document Object Model（文档对象模型）,DOM 是 W3C（万维网联盟）的标准。“W3C 文档对象模型 （DOM） 是中立于平台和语言的接口，它允许程序和脚本动态地访问,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">DOM</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">DOM</h1>
+        <div class="stuff">
+            <span>七月 11, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/DOM/">DOM</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>DOM: Document Object Model（文档对象模型）,DOM 是 W3C（万维网联盟）的标准。“W3C 文档对象模型 （DOM） 是中立于平台和语言的接口，它允许程序和脚本动态地访问和更新文档的内容、结构和样式。”<br>W3C DOM 标准被分为 3 个不同的部分：</p>
+<ul>
+<li>核心 DOM - 针对任何结构化文档的标准模型</li>
+<li>XML DOM - 针对 XML 文档的标准模型</li>
+<li>HTML DOM - 针对 HTML 文档的标准模型<a id="more"></a></li>
+</ul>
+<h2 id="DOM节点"><a href="#DOM节点" class="headerlink" title="DOM节点"></a>DOM节点</h2><p>根据 W3C 的 HTML DOM 标准，HTML 文档中的所有内容都是节点：</p>
+<ul>
+<li>整个文档是一个文档节点</li>
+<li>每个 HTML 元素是元素节点</li>
+<li>HTML 元素内的文本是文本节点</li>
+<li>每个 HTML 属性是属性节点</li>
+<li>注释是注释节点</li>
+</ul>
+<h2 id="HTML-DOM-节点树（DOM树）"><a href="#HTML-DOM-节点树（DOM树）" class="headerlink" title="HTML DOM 节点树（DOM树）"></a>HTML DOM 节点树（DOM树）</h2><p>HTML DOM 将 HTML 文档视作树结构。这种结构被称为节点树：</p>
+<p><img src="/img/DOMTREE.gif" alt="DOM Tree 事例"></p>
+<p>通过 HTML DOM，树中的所有节点均可通过 JavaScript 进行访问。所有 HTML 元素（节点）均可被修改，也可以创建或删除节点。</p>
+<h2 id="HTML-DOM-对象-方法和属性"><a href="#HTML-DOM-对象-方法和属性" class="headerlink" title="HTML DOM 对象 - 方法和属性"></a>HTML DOM 对象 - 方法和属性</h2><h3 id="获取页面元素"><a href="#获取页面元素" class="headerlink" title="获取页面元素"></a>获取页面元素</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">* document.getElementById(&apos;list&apos;)  ---- 返回DOM节点 速度最快</span><br><span class="line">* document.getElementsByTagName(&apos;div)  ---- 返回类数组</span><br><span class="line">* document.getElementsByClassName(&apos;list&apos;) ---- 返回类数组 ie8 有兼容性问题</span><br><span class="line">* document.getElementsByName()   --- 返回类数组 如：获取表单name属性</span><br><span class="line">* ducument.body ---- 获取body</span><br><span class="line">* 通过id 获取不到返回null，其他几项返回 [].</span><br></pre></td></tr></table></figure>
+<h3 id="DOM对象方法预览"><a href="#DOM对象方法预览" class="headerlink" title="DOM对象方法预览"></a>DOM对象方法预览</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>getElementById()</td>
+<td>返回带有指定 ID 的元素。</td>
+</tr>
+<tr>
+<td>getElementsByTagName()</td>
+<td>返回包含带有指定标签名称的所有元素的节点列表（集合/节点数组）。</td>
+</tr>
+<tr>
+<td>getElementsByClassName()</td>
+<td>返回包含带有指定类名的所有元素的节点列表。</td>
+</tr>
+<tr>
+<td>appendChild()</td>
+<td>把新的子节点添加到指定节点。</td>
+</tr>
+<tr>
+<td>removeChild()</td>
+<td>删除子节点。</td>
+</tr>
+<tr>
+<td>replaceChild()</td>
+<td>替换子节点</td>
+</tr>
+<tr>
+<td>insertBefore()</td>
+<td>在指定的子节点前面插入新的子节点。</td>
+</tr>
+<tr>
+<td>createAttribute()</td>
+<td>创建属性节点。</td>
+</tr>
+<tr>
+<td>createElement()</td>
+<td>创建元素节点。</td>
+</tr>
+<tr>
+<td>createTextNode()</td>
+<td>创建文本节点。</td>
+</tr>
+<tr>
+<td>getAttribute()</td>
+<td>返回指定的属性值。</td>
+</tr>
+<tr>
+<td>setAttribute()</td>
+<td>把指定属性设置或修改为指定的值</td>
+</tr>
+</tbody>
+</table>
+<h3 id="节点的类型"><a href="#节点的类型" class="headerlink" title="节点的类型"></a>节点的类型</h3><p>nodetype 节点的属性</p>
+<table>
+<thead>
+<tr>
+<th>节点类型</th>
+<th>nodetype</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>元素节点</td>
+<td>1</td>
+</tr>
+<tr>
+<td>文本节点</td>
+<td>3</td>
+</tr>
+<tr>
+<td>属性节点</td>
+<td>2</td>
+</tr>
+<tr>
+<td>注释节点</td>
+<td>8</td>
+</tr>
+<tr>
+<td>文档节点</td>
+<td>9</td>
+</tr>
+</tbody>
+</table>
+<h3 id="节点的属性"><a href="#节点的属性" class="headerlink" title="节点的属性"></a>节点的属性</h3><ul>
+<li>nodetype 取值：1,2,3</li>
+<li>nodeName 取值元素的标签名 如DIV。 文本：#text</li>
+<li>nodeValue 获取节点的值<ol>
+<li>文本</li>
+<li>属性</li>
+</ol>
+</li>
+</ul>
+<h3 id="DOM节点的增删查改"><a href="#DOM节点的增删查改" class="headerlink" title="DOM节点的增删查改"></a>DOM节点的增删查改</h3><ul>
+<li>创建元素节点</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建文本节点</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.creatTextNode(<span class="string">'你好'</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>插入节点</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> parent=<span class="built_in">document</span>.getElementById(<span class="string">"div1"</span>); <span class="comment">//父元素</span></span><br><span class="line"></span><br><span class="line"><span class="number">1.</span> parent.appendChild()  <span class="comment">//往后面加</span></span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> parent.insertBefoer(<span class="keyword">new</span>,node); <span class="comment">//通过父级在node节点前面添加新的节点</span></span><br></pre></td></tr></table></figure>
+<p><strong><em>ps:已经存在页面上的元素，如果使用appendchild,insertBefore操作则会移动这个元素</em></strong></p>
+<ul>
+<li>复制节点</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ele.cloneNode(boolean);</span><br><span class="line">ele.cloneNode(boolean,<span class="literal">true</span>); <span class="comment">// true为深复制</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>删除节点</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parent.removeChild(ele);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>判断是否存在节点</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parent.hasChildNode() <span class="comment">//返回布尔值</span></span><br></pre></td></tr></table></figure>
+<p><strong><em>ps:</em></strong><br><strong><em>1.标准浏览器中：换行会解析为一个文本节点（即解析空格）。</em></strong><br><strong><em>2.在ie8中会忽略上述问题</em></strong></p>
+<h2 id="节点关系和元素关系"><a href="#节点关系和元素关系" class="headerlink" title="节点关系和元素关系"></a>节点关系和元素关系</h2><table>
+<thead>
+<tr>
+<th>关系</th>
+<th>节点关系</th>
+<th>元素关系(存在兼容性问题 children无兼容性问题)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>父级</td>
+<td>parentNode</td>
+<td>parentElement</td>
+</tr>
+<tr>
+<td>子级</td>
+<td>childNode</td>
+<td>children</td>
+</tr>
+<tr>
+<td>第一个子级</td>
+<td>firstChild</td>
+<td>firstElementChild</td>
+</tr>
+<tr>
+<td>最后个子级</td>
+<td>lastChild</td>
+<td>lastElementChild</td>
+</tr>
+<tr>
+<td>前一个兄弟</td>
+<td>previousSibling</td>
+<td>previousElementSibling</td>
+</tr>
+<tr>
+<td>后一个兄弟</td>
+<td>nextSibling</td>
+<td>nextElementSibling</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>文本</th>
+<th>–</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文本</td>
+<td>ele.innerHTML(含标签)</td>
+</tr>
+<tr>
+<td>文本</td>
+<td>ele.innerText(单纯文字)</td>
+</tr>
+<tr>
+<td>文本</td>
+<td>ele.outerHTML</td>
+</tr>
+<tr>
+<td>文本</td>
+<td>ele.outerText</td>
+</tr>
+</tbody>
+</table>
+<h2 id="属性节点"><a href="#属性节点" class="headerlink" title="属性节点"></a>属性节点</h2><p><strong><em>注意：只有html的标准属性才能直接获取</em></strong><br>例如：id ,className,title等</p>
+<ul>
+<li>设置非标准属性</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setAttribute(attr,val)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>获取非标准属性</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ele.getAttribute(<span class="string">'name'</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>判断是否存在某费标准属性</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ele.hasAttribute(attr) <span class="comment">//返回布尔值</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>删除属性</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ele.removeAttribute(attr)</span><br></pre></td></tr></table></figure>
+<h2 id="CSS-style属性"><a href="#CSS-style属性" class="headerlink" title="CSS:style属性"></a>CSS:style属性</h2><p><strong><em>ps:ele.style设置或改变的是内联样式</em></strong></p>
+<ul>
+<li>获取非内联样式</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getComputedStyle(ele); <span class="comment">//计算过后</span></span><br><span class="line">getComputedStyle(ele).fontSize;</span><br><span class="line">getComputedStyle(ele).[font-size];<span class="comment">//[attr]</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>获取伪元素样式</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getCompuyedStyle(ele,<span class="string">"::before"</span>).color;</span><br><span class="line">getCompuyedStyle(ele,<span class="string">"::before"</span>).fontSize;</span><br><span class="line">getCompuyedStyle(ele,<span class="string">"::before"</span>).[font-size];<span class="comment">//兼容ie8-</span></span><br></pre></td></tr></table></figure>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://link.hhtjim.com/163/5146554.mp3"></li>
+                    
+                        <li title="1" data-url="http://link.hhtjim.com/qq/001faIUs4M2zna.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci data-cs data-r data-o data-a data-d="false">查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
